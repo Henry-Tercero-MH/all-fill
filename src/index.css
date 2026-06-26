@@ -66,16 +66,36 @@
     @apply inline-flex items-center justify-center gap-2 rounded-full px-6 py-3 text-base font-700 transition-all duration-200;
   }
 
+  /* Botón coral metálico (degradado + gloss + reflejo interior) */
   .btn-coral {
-    @apply btn bg-coral text-white hover:bg-coral-600;
-    box-shadow: 0 12px 26px -12px rgba(249, 92, 75, 0.8);
+    @apply btn text-white;
+    background: linear-gradient(180deg, #ff7a6b 0%, #f95c4b 48%, #e0432f 100%);
+    box-shadow:
+      0 1px 0 rgba(255, 255, 255, 0.45) inset,
+      0 -3px 8px rgba(0, 0, 0, 0.18) inset,
+      0 12px 26px -12px rgba(249, 92, 75, 0.85);
   }
   .btn-coral:hover {
     transform: translateY(-1px);
+    filter: brightness(1.05);
+  }
+
+  /* Botón azul eléctrico metálico (acento del logo) */
+  .btn-electric {
+    @apply btn text-white;
+    background: linear-gradient(180deg, #2e8bff 0%, #076ddf 48%, #0a47a3 100%);
+    box-shadow:
+      0 1px 0 rgba(255, 255, 255, 0.5) inset,
+      0 -3px 8px rgba(0, 0, 0, 0.22) inset,
+      0 12px 26px -12px rgba(7, 109, 223, 0.85);
+  }
+  .btn-electric:hover {
+    transform: translateY(-1px);
+    filter: brightness(1.06);
   }
 
   .btn-ink {
-    @apply btn border border-ink/15 bg-white text-ink hover:border-ink/40;
+    @apply btn border border-ink/15 bg-white text-ink hover:border-electric/50 hover:text-electric;
   }
 
   .btn-wa {
@@ -92,8 +112,11 @@
     @apply overflow-hidden rounded-[1.4rem] border border-ink/[0.08] bg-white transition-all duration-300;
   }
   .card:hover {
-    @apply border-ink/[0.14] shadow-lift;
+    @apply border-electric/30;
     transform: translateY(-6px);
+    box-shadow:
+      0 28px 60px -28px rgba(23, 24, 24, 0.45),
+      0 0 0 1px rgba(7, 109, 223, 0.18);
   }
 }
 
@@ -103,5 +126,25 @@
     text-decoration-color: #f95c4b;
     text-decoration-thickness: 3px;
     text-underline-offset: 6px;
+  }
+
+  /* Superficie coral metálica (header, badges) */
+  .bg-metal-coral {
+    background: linear-gradient(165deg, #ff6f5e 0%, #f95c4b 52%, #e0432f 100%);
+  }
+
+  /* Superficie negro-metálico tipo el fondo del logo */
+  .bg-metal-dark {
+    background:
+      radial-gradient(120% 90% at 30% 0%, rgba(7, 109, 223, 0.18), transparent 55%),
+      linear-gradient(160deg, #23262b 0%, #15171a 55%, #0e0f10 100%);
+  }
+
+  /* Texto plateado-metálico (estilo del wordmark del logo) */
+  .text-metal {
+    background: linear-gradient(180deg, #ffffff 0%, #dfe4ea 45%, #9aa3ad 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
   }
 }

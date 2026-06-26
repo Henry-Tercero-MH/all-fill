@@ -41,14 +41,15 @@ export default function Navbar() {
   return (
     <header className="fixed inset-x-0 top-0 z-50">
       {/* Barra principal */}
-      <div className="bg-coral text-white">
+      <div className="bg-metal-coral text-white">
         <div className="container-x flex h-16 items-center gap-3 md:h-[72px] md:gap-5">
           {/* Logo */}
           <button onClick={() => go('inicio')} className="flex shrink-0 items-center gap-2" aria-label="Inicio">
-            <span className="flex h-10 w-10 items-center justify-center overflow-hidden rounded-xl bg-ink ring-1 ring-white/20">
-              <img src="/logo-mark.png" alt="ALL-FILL" className="h-full w-full object-cover" />
+            <img src="/logo-mark.png" alt="ALL-FILL" className="h-11 w-11 object-contain" />
+            <span className="relative font-display text-xl font-800 tracking-tight">
+              ALL-FILL
+              <span className="absolute -bottom-1 left-0 h-[2px] w-full rounded bg-gradient-to-r from-electric-glow to-electric-deep" />
             </span>
-            <span className="font-display text-xl font-800 tracking-tight">ALL-FILL</span>
           </button>
 
           {/* Categorías */}
@@ -70,7 +71,7 @@ export default function Navbar() {
             <button
               type="submit"
               aria-label="Buscar"
-              className="absolute right-1.5 top-1.5 flex h-8 w-8 items-center justify-center rounded-full bg-coral text-white transition-colors hover:bg-coral-600"
+              className="absolute right-1.5 top-1.5 flex h-8 w-8 items-center justify-center rounded-full bg-electric text-white transition-colors hover:bg-electric-deep"
             >
               <FiSearch />
             </button>
@@ -112,7 +113,7 @@ export default function Navbar() {
             placeholder="¿Qué quieres crear hoy?"
             className="h-11 w-full rounded-full border-0 bg-white pl-5 pr-12 text-ink outline-none placeholder:text-ink/40"
           />
-          <button type="submit" aria-label="Buscar" className="absolute right-[calc(1.25rem+6px)] top-1.5 flex h-8 w-8 items-center justify-center rounded-full bg-coral text-white">
+          <button type="submit" aria-label="Buscar" className="absolute right-[calc(1.25rem+6px)] top-1.5 flex h-8 w-8 items-center justify-center rounded-full bg-electric text-white">
             <FiSearch />
           </button>
         </form>
@@ -131,7 +132,7 @@ export default function Navbar() {
       </div>
 
       {/* Progreso de scroll */}
-      <motion.div style={{ scaleX: progress }} className="h-0.5 w-full origin-left bg-ink/80" />
+      <motion.div style={{ scaleX: progress }} className="h-0.5 w-full origin-left bg-gradient-to-r from-coral to-electric" />
 
       {/* Menú móvil */}
       <AnimatePresence>
@@ -141,7 +142,7 @@ export default function Navbar() {
             animate={{ height: 'auto', opacity: 1 }}
             exit={{ height: 0, opacity: 0 }}
             transition={{ duration: 0.25 }}
-            className="overflow-hidden border-t border-white/10 bg-coral text-white md:hidden"
+            className="overflow-hidden border-t border-white/10 bg-metal-coral text-white md:hidden"
           >
             <ul className="container-x flex flex-col gap-1 py-3">
               {links.map((l) => (

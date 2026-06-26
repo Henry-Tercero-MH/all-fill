@@ -203,7 +203,7 @@ export default function Quoter() {
 
           {/* Resultado */}
           <Reveal className="lg:col-span-2" delay={0.1}>
-            <div className="sticky top-24 flex h-full flex-col justify-between rounded-[1.6rem] bg-ink p-6 text-white shadow-lift">
+            <div className="flex h-full flex-col justify-between rounded-[1.6rem] bg-metal-dark p-6 text-white shadow-glow lg:sticky lg:top-28">
               <div>
                 <p className="text-sm font-700 uppercase tracking-widest text-white/50">Tu estimado</p>
                 <div className="mt-3 min-h-[88px]">
@@ -218,7 +218,7 @@ export default function Quoter() {
                         className="flex items-baseline gap-1"
                       >
                         <span className="font-display text-2xl text-white/50">Q</span>
-                        <span className="font-display text-6xl font-700 text-coral">{price.total}</span>
+                        <span className="font-display text-5xl font-700 text-coral sm:text-6xl">{price.total}</span>
                       </motion.div>
                     ) : (
                       <motion.p

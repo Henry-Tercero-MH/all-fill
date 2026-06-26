@@ -11,13 +11,13 @@ export default function Footer() {
   const go = (id) => document.getElementById(id)?.scrollIntoView({ behavior: 'smooth' })
 
   return (
-    <footer className="bg-ink text-white">
+    <footer className="bg-metal-dark text-white">
       <div className="container-x py-16">
         <div className="flex flex-col gap-12 md:flex-row md:justify-between">
           <div className="max-w-xs">
             <div className="flex items-center gap-2.5">
-              <span className="flex h-11 w-11 items-center justify-center overflow-hidden rounded-xl ring-1 ring-white/15">
-                <img src="/logo-mark.png" alt="ALL-FILL" className="h-full w-full object-cover" />
+              <span className="flex h-12 w-12 items-center justify-center rounded-xl bg-white p-1.5">
+                <img src="/logo-mark.png" alt="ALL-FILL" className="h-full w-full object-contain" />
               </span>
               <div className="leading-tight">
                 <span className="block font-display text-2xl font-700 tracking-tight">ALL-FILL</span>

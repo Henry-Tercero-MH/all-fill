@@ -17,6 +17,19 @@ export default {
         cream: '#FFF0BA', // Colonial White
         spring: '#02F5A1', // Medium Spring Green
         paper: '#FBFAF7', // blanco cálido de fondo
+        // Azul eléctrico del logo ALL-FILL (glow del hexágono)
+        electric: {
+          DEFAULT: '#076DDF',
+          glow: '#2E8BFF',
+          deep: '#0A47A3',
+        },
+        // Grises metálicos (acero/plata)
+        steel: {
+          light: '#E8EBEF',
+          DEFAULT: '#9AA3AD',
+          dark: '#3A4048',
+        },
+        gunmetal: '#0E0F10',
       },
       fontFamily: {
         display: ['Fraunces', 'Georgia', 'serif'],
@@ -47,6 +60,7 @@ export default {
       boxShadow: {
         soft: '0 18px 40px -24px rgba(23, 24, 24, 0.35)',
         lift: '0 28px 60px -28px rgba(23, 24, 24, 0.45)',
+        glow: '0 0 28px -2px rgba(7, 109, 223, 0.45)',
       },
     },
   },
