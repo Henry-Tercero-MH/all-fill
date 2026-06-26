@@ -1,4 +1,4 @@
-// Fotos reales de las piezas HEMITH (en /public/img).
+// Fotos reales de las piezas ALL-FILL (en /public/img).
 // U() devuelve la ruta local tal cual; si fuese un ID de Unsplash, arma la URL.
 const img = (file) => `/img/${file}`
 
@@ -14,6 +14,9 @@ export const PHOTOS = {
   llaveroPulpo: img('llavero_pulpo2.webp'),
   llaveroBatman: img('llaverobatman.webp'),
   llaveroBuzz: img('llaveroBuzzlightyear.webp'),
+  llaveroCapitan: img('llaveroEscudocapitanamerica.webp'),
+  llaveroIronman: img('llaveroIromman.webp'),
+  llaveroPesas: img('llaverospesas.webp'),
   // Soportes
   soporteTelefono: img('soporteTelefono.webp'),
   soporteTelefonoGatito: img('soporteTelefonoGatito.webp'),

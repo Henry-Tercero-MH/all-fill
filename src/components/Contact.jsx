@@ -63,7 +63,7 @@ export default function Contact() {
     setTouched({ name: true, email: true, message: true })
     if (Object.keys(errors).length === 0) {
       const text =
-        `¡Hola HEMITH! 🙂\n\n` +
+        `¡Hola ALL-FILL! 🙂\n\n` +
         `*Nombre:* ${values.name}\n` +
         `*Correo:* ${values.email}\n` +
         `*Mi idea:* ${values.message}` +
@@ -76,7 +76,7 @@ export default function Contact() {
     }
   }
 
-  const wa = `https://wa.me/${WA_NUMBER}?text=${encodeURIComponent('¡Hola HEMITH! Quiero hacer realidad una idea 🙂')}`
+  const wa = `https://wa.me/${WA_NUMBER}?text=${encodeURIComponent('¡Hola ALL-FILL! Quiero hacer realidad una idea 🙂')}`
 
   return (
     <section id="contacto" className="bg-white py-24">
@@ -96,7 +96,7 @@ export default function Contact() {
 
           <div className="mt-8 space-y-2 text-ink/70">
             <p>📍 Ciudad de Guatemala</p>
-            <p>✉️ hola@hemith.gt</p>
+            <p>✉️ hola@all-fill.gt</p>
           </div>
         </Reveal>
 

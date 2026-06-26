@@ -16,7 +16,7 @@ export default function FeaturedCarousel() {
           <div className="flex items-end justify-between gap-4">
             <div>
               <p className="eyebrow">✨ Recomendados</p>
-              <h2 className="h-section">HEMITH te recomienda</h2>
+              <h2 className="h-section">ALL-FILL te recomienda</h2>
             </div>
             <div className="hidden gap-2 sm:flex">
               <button onClick={() => emblaApi && emblaApi.scrollPrev()} aria-label="Anterior" className="flex h-11 w-11 items-center justify-center rounded-full border border-ink/15 bg-white text-ink transition-colors hover:border-coral hover:text-coral">

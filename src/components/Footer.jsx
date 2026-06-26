@@ -16,10 +16,13 @@ export default function Footer() {
         <div className="flex flex-col gap-12 md:flex-row md:justify-between">
           <div className="max-w-xs">
             <div className="flex items-center gap-2.5">
-              <span className="flex h-9 w-9 items-center justify-center rounded-xl bg-coral font-display text-lg font-700 text-white">
-                H
+              <span className="flex h-11 w-11 items-center justify-center overflow-hidden rounded-xl ring-1 ring-white/15">
+                <img src="/logo-mark.png" alt="ALL-FILL" className="h-full w-full object-cover" />
               </span>
-              <span className="font-display text-2xl font-700 tracking-tight">HEMITH</span>
+              <div className="leading-tight">
+                <span className="block font-display text-2xl font-700 tracking-tight">ALL-FILL</span>
+                <span className="text-xs font-600 uppercase tracking-[0.2em] text-coral">Impresión 3D con estrategia</span>
+              </div>
             </div>
             <p className="mt-4 leading-relaxed text-white/70">
               Tomamos tus ideas y las convertimos en cosas reales. Hecho con cuidado en
@@ -68,7 +71,7 @@ export default function Footer() {
         </div>
 
         <div className="mt-14 flex flex-col items-center justify-between gap-3 border-t border-white/10 pt-7 text-sm text-white/50 sm:flex-row">
-          <p>© {new Date().getFullYear()} HEMITH. Todos los derechos reservados.</p>
+          <p>© {new Date().getFullYear()} ALL-FILL. Todos los derechos reservados.</p>
           <p>Impresión 3D · Guatemala</p>
         </div>
       </div>

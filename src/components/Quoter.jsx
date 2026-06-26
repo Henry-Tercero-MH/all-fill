@@ -111,7 +111,7 @@ export default function Quoter() {
 
   const wa = price
     ? `https://wa.me/50240705002?text=${encodeURIComponent(
-        `¡Hola HEMITH! Quiero cotizar: ${WHAT.find((x) => x.id === what)?.label.toLowerCase()}, tamaño "${SIZE.find((x) => x.id === size)?.label.toLowerCase()}", ${price.quantity} unidad(es). El estimado de la web fue Q${price.total}.`,
+        `¡Hola ALL-FILL! Quiero cotizar: ${WHAT.find((x) => x.id === what)?.label.toLowerCase()}, tamaño "${SIZE.find((x) => x.id === size)?.label.toLowerCase()}", ${price.quantity} unidad(es). El estimado de la web fue Q${price.total}.`,
       )}`
     : '#'
 

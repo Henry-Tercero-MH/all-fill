@@ -1,6 +1,6 @@
-# HEMITH · Impresión 3D
+# ALL-FILL · Impresión 3D
 
-Sitio web one-page para **HEMITH**, un negocio de impresión 3D. Diseño editorial y
+Sitio web one-page para **ALL-FILL** (Impresión 3D con estrategia), un negocio de impresión 3D. Diseño editorial y
 cálido, pensado para clientes que **no saben nada de impresión 3D**: lenguaje sencillo,
 fondo blanco y fotografía real.
 

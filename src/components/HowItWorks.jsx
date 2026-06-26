@@ -33,7 +33,7 @@ export default function HowItWorks() {
               <div className="absolute -left-4 -top-4 h-28 w-28 rounded-3xl bg-cream" />
               <img
                 src={U(PHOTOS.soporteTelefonoGatito, 800)}
-                alt="Pieza HEMITH impresa en 3D"
+                alt="Pieza ALL-FILL impresa en 3D"
                 className="relative aspect-[5/4] w-full rounded-[1.6rem] border border-ink/10 object-cover shadow-soft"
               />
               <div className="absolute -bottom-6 -right-4 max-w-[210px] rounded-2xl border border-ink/10 bg-white p-4 shadow-lift">

@@ -45,10 +45,10 @@ export default function Navbar() {
         <div className="container-x flex h-16 items-center gap-3 md:h-[72px] md:gap-5">
           {/* Logo */}
           <button onClick={() => go('inicio')} className="flex shrink-0 items-center gap-2" aria-label="Inicio">
-            <span className="flex h-9 w-9 items-center justify-center rounded-xl bg-white font-display text-lg font-800 text-coral">
-              H
+            <span className="flex h-10 w-10 items-center justify-center overflow-hidden rounded-xl bg-ink ring-1 ring-white/20">
+              <img src="/logo-mark.png" alt="ALL-FILL" className="h-full w-full object-cover" />
             </span>
-            <span className="font-display text-xl font-800 tracking-tight">HEMITH</span>
+            <span className="font-display text-xl font-800 tracking-tight">ALL-FILL</span>
           </button>
 
           {/* Categorías */}

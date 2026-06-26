@@ -1,6 +1,6 @@
 import { PHOTOS } from './images'
 
-// Categorías reales de HEMITH. Coral + ink como acentos de marca.
+// Categorías reales de ALL-FILL. Coral + ink como acentos de marca.
 export const categories = [
   { id: 'todos', label: 'Todo' },
   { id: 'llaveros', label: 'Llaveros' },
@@ -251,5 +251,32 @@ export const products = [
     photo: PHOTOS.ukulele,
     tag: 'Suena de verdad',
     desc: '¡Sí, se toca! Ukelele impreso en 3D en el color que elijas.',
+  },
+  // Más llaveros de personajes
+  {
+    id: 27,
+    name: 'Llavero Escudo Capitán América',
+    category: 'llaveros',
+    price: 35,
+    photo: PHOTOS.llaveroCapitan,
+    tag: 'Personaje',
+    desc: 'El escudo del Capitán, con sus colores y detalle. Para todo fan.',
+  },
+  {
+    id: 28,
+    name: 'Llavero Iron Man',
+    category: 'llaveros',
+    price: 40,
+    photo: PHOTOS.llaveroIronman,
+    tag: 'Personaje',
+    desc: 'El héroe de hierro en miniatura, listo para tus llaves.',
+  },
+  {
+    id: 29,
+    name: 'Llavero pesas',
+    category: 'llaveros',
+    price: 30,
+    photo: PHOTOS.llaveroPesas,
+    desc: 'Para los amantes del gym. Un detalle fitness original.',
   },
 ]
