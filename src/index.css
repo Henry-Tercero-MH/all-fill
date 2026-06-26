@@ -1,0 +1,107 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 88px;
+    font-optical-sizing: auto;
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  body {
+    @apply bg-paper font-body text-ink antialiased;
+    overflow-x: hidden;
+    font-feature-settings: 'kern' 1, 'liga' 1, 'calt' 1;
+    letter-spacing: -0.005em;
+    line-height: 1.6;
+  }
+
+  /* La display (Fraunces) con optical sizing alto y ligaduras para títulos grandes. */
+  .font-display {
+    font-optical-sizing: auto;
+    font-feature-settings: 'kern' 1, 'liga' 1, 'dlig' 1, 'ss01' 1;
+  }
+
+
+  ::selection {
+    @apply bg-coral/20 text-ink;
+  }
+
+  ::-webkit-scrollbar {
+    width: 11px;
+  }
+  ::-webkit-scrollbar-track {
+    @apply bg-paper;
+  }
+  ::-webkit-scrollbar-thumb {
+    @apply rounded-full bg-ink/20;
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    @apply bg-coral;
+  }
+}
+
+@layer components {
+  .container-x {
+    @apply mx-auto w-full max-w-6xl px-5 sm:px-8;
+  }
+
+  .eyebrow {
+    @apply mb-4 inline-flex items-center gap-2 text-sm font-700 uppercase tracking-[0.2em] text-coral;
+  }
+
+  .h-section {
+    @apply font-display text-[2rem] font-600 leading-[1.05] tracking-tight text-ink text-balance sm:text-4xl md:text-[2.9rem];
+  }
+
+  .lead {
+    @apply text-lg leading-relaxed text-ink/70 text-pretty;
+  }
+
+  .btn {
+    @apply inline-flex items-center justify-center gap-2 rounded-full px-6 py-3 text-base font-700 transition-all duration-200;
+  }
+
+  .btn-coral {
+    @apply btn bg-coral text-white hover:bg-coral-600;
+    box-shadow: 0 12px 26px -12px rgba(249, 92, 75, 0.8);
+  }
+  .btn-coral:hover {
+    transform: translateY(-1px);
+  }
+
+  .btn-ink {
+    @apply btn border border-ink/15 bg-white text-ink hover:border-ink/40;
+  }
+
+  .btn-wa {
+    @apply btn text-white;
+    background: #128c4a;
+  }
+  .btn-wa:hover {
+    background: #0f7a40;
+    transform: translateY(-1px);
+  }
+
+  /* Tarjeta editorial */
+  .card {
+    @apply overflow-hidden rounded-[1.4rem] border border-ink/[0.08] bg-white transition-all duration-300;
+  }
+  .card:hover {
+    @apply border-ink/[0.14] shadow-lift;
+    transform: translateY(-6px);
+  }
+}
+
+@layer utilities {
+  .underline-hand {
+    text-decoration: underline;
+    text-decoration-color: #f95c4b;
+    text-decoration-thickness: 3px;
+    text-underline-offset: 6px;
+  }
+}

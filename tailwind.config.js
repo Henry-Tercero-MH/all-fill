@@ -1,0 +1,54 @@
+/** @type {import('tailwindcss').Config} */
+export default {
+  content: ['./index.html', './src/**/*.{js,jsx}'],
+  theme: {
+    extend: {
+      colors: {
+        // Paleta tomada de las tarjetas de color
+        ink: '#171818', // Army Black
+        coral: {
+          DEFAULT: '#F95C4B', // Algerian Coral
+          600: '#E8483A',
+        },
+        forest: '#023A22', // Off-Road Green
+        navy: '#003162', // Prestige Mauve (navy)
+        teal: '#23ABBD', // Chrysocolla Blue
+        sky: '#AAD1F1', // Gabriella Soft Blue
+        cream: '#FFF0BA', // Colonial White
+        spring: '#02F5A1', // Medium Spring Green
+        paper: '#FBFAF7', // blanco cálido de fondo
+      },
+      fontFamily: {
+        display: ['Fraunces', 'Georgia', 'serif'],
+        body: ['Manrope', 'system-ui', 'sans-serif'],
+        sans: ['Manrope', 'system-ui', 'sans-serif'],
+      },
+      fontWeight: {
+        500: '500',
+        600: '600',
+        700: '700',
+        800: '800',
+        900: '900',
+      },
+      keyframes: {
+        floaty: {
+          '0%, 100%': { transform: 'translateY(0)' },
+          '50%': { transform: 'translateY(-10px)' },
+        },
+        fadeUp: {
+          from: { opacity: '0', transform: 'translateY(16px)' },
+          to: { opacity: '1', transform: 'translateY(0)' },
+        },
+      },
+      animation: {
+        floaty: 'floaty 7s ease-in-out infinite',
+        fadeUp: 'fadeUp 0.6s ease-out both',
+      },
+      boxShadow: {
+        soft: '0 18px 40px -24px rgba(23, 24, 24, 0.35)',
+        lift: '0 28px 60px -28px rgba(23, 24, 24, 0.45)',
+      },
+    },
+  },
+  plugins: [],
+}
