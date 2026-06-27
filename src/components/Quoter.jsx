@@ -127,7 +127,7 @@ export default function Quoter() {
           </p>
         </Reveal>
 
-        <div className="mt-10 grid gap-6 lg:grid-cols-5">
+        <div className="mt-10 grid gap-6 lg:grid-cols-5 lg:items-start">
           <Reveal className="lg:col-span-3" delay={0.05}>
             <div className="rounded-[1.6rem] border border-ink/10 bg-white p-6 shadow-soft sm:p-8">
               <StepDots step={step} />
@@ -203,7 +203,7 @@ export default function Quoter() {
 
           {/* Resultado */}
           <Reveal className="lg:col-span-2" delay={0.1}>
-            <div className="flex h-full flex-col justify-between rounded-[1.6rem] bg-metal-dark p-6 text-white shadow-glow lg:sticky lg:top-28">
+            <div className="flex h-full flex-col justify-between rounded-[1.6rem] bg-metal-dark p-5 text-white shadow-glow sm:p-6 lg:sticky lg:top-28">
               <div>
                 <p className="text-sm font-700 uppercase tracking-widest text-white/50">Tu estimado</p>
                 <div className="mt-3 min-h-[88px]">
@@ -217,8 +217,8 @@ export default function Quoter() {
                         transition={{ duration: 0.5 }}
                         className="flex items-baseline gap-1"
                       >
-                        <span className="font-display text-2xl text-white/50">Q</span>
-                        <span className="font-display text-5xl font-700 text-coral sm:text-6xl">{price.total}</span>
+                        <span className="font-display text-xl text-white/50">Q</span>
+                        <span className="font-display text-4xl font-700 text-coral sm:text-5xl lg:text-6xl">{price.total}</span>
                       </motion.div>
                     ) : (
                       <motion.p

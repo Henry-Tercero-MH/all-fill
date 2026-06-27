@@ -104,7 +104,7 @@ export default function HeroBento() {
         </div>
 
         {/* Banners laterales */}
-        <div className="grid gap-4 lg:grid-rows-2">
+        <div className="grid grid-cols-2 gap-4 lg:grid-cols-1 lg:grid-rows-2">
           {/* Banner 3D de marca */}
           <div className="relative overflow-hidden rounded-[1.6rem] border border-white/10 bg-black">
             {/* Fondo 3D: listón de seda animado */}
@@ -113,11 +113,11 @@ export default function HeroBento() {
                 <Scene3D />
               </Suspense>
             </div>
-            <div className="relative flex h-[220px] flex-col p-5 lg:h-full">
+            <div className="relative flex h-[160px] flex-col p-4 sm:h-[220px] lg:h-full">
               <span className="inline-flex w-fit items-center gap-1.5 rounded-full border border-white/15 bg-white/10 px-3 py-1 text-xs font-700 text-white/90 backdrop-blur">
                 <span className="h-1.5 w-1.5 rounded-full bg-electric shadow-glow" /> 3D en vivo
               </span>
-              <p className="mt-auto max-w-[12rem] font-display text-xl font-700 leading-tight text-white drop-shadow">
+              <p className="mt-auto max-w-[10rem] font-display text-base font-700 leading-tight text-white drop-shadow sm:text-xl">
                 Así de real hacemos tu pieza
               </p>
             </div>
@@ -126,16 +126,16 @@ export default function HeroBento() {
           {/* Banner cotizador */}
           <button
             onClick={() => go('cotizador')}
-            className="group relative h-[180px] overflow-hidden rounded-[1.6rem] bg-metal-dark p-5 text-left text-white shadow-glow lg:h-full"
+            className="group relative h-[160px] overflow-hidden rounded-[1.6rem] bg-metal-dark p-4 text-left text-white shadow-glow sm:h-[180px] sm:p-5 lg:h-full"
           >
             <div className="pointer-events-none absolute -right-8 -top-8 h-40 w-40 rounded-full bg-electric/40 blur-2xl transition-transform duration-500 group-hover:scale-125" />
             <span className="relative inline-flex items-center gap-2 rounded-full bg-coral px-3 py-1 text-xs font-800 uppercase tracking-wider">
               Precios
             </span>
-            <p className="relative mt-3 font-display text-2xl font-700 leading-tight">
+            <p className="relative mt-2 font-display text-xl font-700 leading-tight sm:mt-3 sm:text-2xl">
               ¿Cuánto cuesta tu idea?
             </p>
-            <p className="relative mt-1 text-sm text-white/70">Calcúlalo en 3 toques →</p>
+            <p className="relative mt-1 text-xs text-white/70 sm:text-sm">Calcúlalo en 3 toques →</p>
           </button>
         </div>
       </div>
