@@ -17,9 +17,8 @@ export default function FeaturedCarousel() {
             <div>
               <p className="eyebrow">✨ Recomendados</p>
               <h2 className="h-section">ALL-FILL te recomienda</h2>
-              <p className="mt-1 text-sm text-ink/45 sm:hidden">Desliza para ver más →</p>
             </div>
-            <div className="hidden gap-2 sm:flex">
+            <div className="flex gap-2">
               <button onClick={() => emblaApi && emblaApi.scrollPrev()} aria-label="Anterior" className="flex h-11 w-11 items-center justify-center rounded-full border border-ink/15 bg-white text-ink transition-colors hover:border-coral hover:text-coral">
                 <FiArrowLeft />
               </button>
@@ -35,7 +34,7 @@ export default function FeaturedCarousel() {
             {products.map((p) => {
               const color = catColor[p.category]
               return (
-                <div key={p.id} className="min-w-0 flex-[0_0_78%] pr-4 sm:flex-[0_0_42%] lg:flex-[0_0_25%]">
+                <div key={p.id} className="min-w-0 flex-[0_0_100%] pr-5 sm:flex-[0_0_50%] lg:flex-[0_0_25%]">
                   <article className="card group flex h-full flex-col">
                     <div className="relative overflow-hidden">
                       <img src={U(p.photo, 500)} alt={p.name} loading="lazy" className="aspect-square w-full object-cover transition-transform duration-500 group-hover:scale-105" />
