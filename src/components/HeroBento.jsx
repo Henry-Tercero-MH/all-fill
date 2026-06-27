@@ -1,10 +1,8 @@
-import { Suspense, lazy, useCallback, useEffect, useState } from 'react'
+import { useCallback, useEffect, useState } from 'react'
 import useEmblaCarousel from 'embla-carousel-react'
 import Autoplay from 'embla-carousel-autoplay'
 import { FiArrowLeft, FiArrowRight } from 'react-icons/fi'
 import { U, PHOTOS } from '../data/images'
-
-const Scene3D = lazy(() => import('./Scene3D'))
 
 const go = (id) => document.getElementById(id)?.scrollIntoView({ behavior: 'smooth', block: 'start' })
 
@@ -105,21 +103,11 @@ export default function HeroBento() {
 
         {/* Banners laterales — en móvil: columna completa; en lg: columna del sidebar */}
         <div className="grid grid-cols-1 gap-4 lg:grid-rows-2">
-          {/* Banner 3D de marca */}
-          <div className="relative overflow-hidden rounded-[1.6rem] border border-white/10 bg-black">
-            <div className="absolute inset-0">
-              <Suspense fallback={null}>
-                <Scene3D />
-              </Suspense>
-            </div>
-            <div className="relative flex h-[130px] flex-col p-5 lg:h-full">
-              <span className="inline-flex w-fit items-center gap-1.5 rounded-full border border-white/15 bg-white/10 px-3 py-1 text-xs font-700 text-white/90 backdrop-blur">
-                <span className="h-1.5 w-1.5 shrink-0 rounded-full bg-electric shadow-glow" /> 3D en vivo
-              </span>
-              <p className="mt-auto font-display text-lg font-700 leading-tight text-white drop-shadow lg:text-xl">
-                Así de real hacemos tu pieza
-              </p>
-            </div>
+          {/* Banner logo — solo desktop */}
+          <div className="relative hidden overflow-hidden rounded-[1.6rem] bg-white lg:flex lg:flex-col lg:items-center lg:justify-center">
+            <img src="/logo-mark.png" alt="ALL-FILL" className="relative h-32 w-32 object-contain drop-shadow-xl" />
+            <p className="relative mt-3 font-display text-2xl font-800 tracking-tight text-ink">ALL-FILL</p>
+            <p className="relative mt-1 text-sm text-ink/40">Impresión 3D a tu medida</p>
           </div>
 
           {/* Banner cotizador */}
