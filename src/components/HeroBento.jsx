@@ -53,25 +53,25 @@ export default function HeroBento() {
 
   return (
     <section id="inicio" className="pt-[150px] sm:pt-[128px]">
-      <div className="container-x grid gap-4 lg:grid-cols-3">
+      <div className="container-x flex flex-col gap-4 lg:grid lg:grid-cols-3">
         {/* Carrusel principal */}
         <div className="relative lg:col-span-2">
           <div className="overflow-hidden rounded-[1.6rem]" ref={emblaRef}>
             <div className="flex">
               {slides.map((s) => (
                 <div key={s.title} className="relative min-w-0 flex-[0_0_100%]">
-                  <div className="relative h-[300px] sm:h-[380px] lg:h-[470px]">
+                  <div className="relative h-[340px] sm:h-[380px] lg:h-[470px]">
                     <img src={U(s.photo, 1100)} alt={s.title} className="absolute inset-0 h-full w-full object-cover" />
-                    <div className="absolute inset-0 bg-gradient-to-r from-ink/85 via-ink/45 to-transparent" />
-                    <div className="relative flex h-full max-w-md flex-col justify-center p-8 text-white sm:p-12">
-                      <span className="mb-3 inline-flex w-fit items-center gap-2 rounded-full bg-coral px-3 py-1 text-xs font-800 uppercase tracking-wider">
+                    <div className="absolute inset-0 bg-gradient-to-r from-ink/85 via-ink/50 to-transparent" />
+                    <div className="relative flex h-full max-w-xs flex-col justify-center p-6 text-white sm:max-w-md sm:p-12">
+                      <span className="mb-2 inline-flex w-fit items-center gap-2 rounded-full bg-coral px-3 py-1 text-xs font-800 uppercase tracking-wider">
                         {s.eyebrow}
                       </span>
-                      <h2 className="font-display text-3xl font-700 leading-[1.05] text-balance sm:text-4xl lg:text-5xl">
+                      <h2 className="font-display text-2xl font-700 leading-[1.1] text-balance sm:text-4xl lg:text-5xl">
                         {s.title}
                       </h2>
-                      <p className="mt-3 max-w-sm text-white/80">{s.text}</p>
-                      <button onClick={() => go(s.to)} className="btn-coral mt-6 w-fit">
+                      <p className="mt-2 text-sm text-white/80 sm:mt-3 sm:text-base">{s.text}</p>
+                      <button onClick={() => go(s.to)} className="btn-coral mt-4 w-fit text-sm sm:mt-6 sm:text-base">
                         {s.cta}
                       </button>
                     </div>
@@ -103,21 +103,20 @@ export default function HeroBento() {
           </div>
         </div>
 
-        {/* Banners laterales */}
-        <div className="grid grid-cols-2 gap-4 lg:grid-cols-1 lg:grid-rows-2">
+        {/* Banners laterales — en móvil: columna completa; en lg: columna del sidebar */}
+        <div className="grid grid-cols-1 gap-4 lg:grid-rows-2">
           {/* Banner 3D de marca */}
           <div className="relative overflow-hidden rounded-[1.6rem] border border-white/10 bg-black">
-            {/* Fondo 3D: listón de seda animado */}
             <div className="absolute inset-0">
               <Suspense fallback={null}>
                 <Scene3D />
               </Suspense>
             </div>
-            <div className="relative flex h-[160px] flex-col p-4 sm:h-[220px] lg:h-full">
+            <div className="relative flex h-[130px] flex-col p-5 lg:h-full">
               <span className="inline-flex w-fit items-center gap-1.5 rounded-full border border-white/15 bg-white/10 px-3 py-1 text-xs font-700 text-white/90 backdrop-blur">
-                <span className="h-1.5 w-1.5 rounded-full bg-electric shadow-glow" /> 3D en vivo
+                <span className="h-1.5 w-1.5 shrink-0 rounded-full bg-electric shadow-glow" /> 3D en vivo
               </span>
-              <p className="mt-auto max-w-[10rem] font-display text-base font-700 leading-tight text-white drop-shadow sm:text-xl">
+              <p className="mt-auto font-display text-lg font-700 leading-tight text-white drop-shadow lg:text-xl">
                 Así de real hacemos tu pieza
               </p>
             </div>
@@ -126,16 +125,16 @@ export default function HeroBento() {
           {/* Banner cotizador */}
           <button
             onClick={() => go('cotizador')}
-            className="group relative h-[160px] overflow-hidden rounded-[1.6rem] bg-metal-dark p-4 text-left text-white shadow-glow sm:h-[180px] sm:p-5 lg:h-full"
+            className="group relative h-[130px] overflow-hidden rounded-[1.6rem] bg-metal-dark p-5 text-left text-white shadow-glow lg:h-full"
           >
             <div className="pointer-events-none absolute -right-8 -top-8 h-40 w-40 rounded-full bg-electric/40 blur-2xl transition-transform duration-500 group-hover:scale-125" />
             <span className="relative inline-flex items-center gap-2 rounded-full bg-coral px-3 py-1 text-xs font-800 uppercase tracking-wider">
               Precios
             </span>
-            <p className="relative mt-2 font-display text-xl font-700 leading-tight sm:mt-3 sm:text-2xl">
+            <p className="relative mt-2 font-display text-xl font-700 leading-tight lg:text-2xl">
               ¿Cuánto cuesta tu idea?
             </p>
-            <p className="relative mt-1 text-xs text-white/70 sm:text-sm">Calcúlalo en 3 toques →</p>
+            <p className="relative mt-1 text-sm text-white/70">Calcúlalo en 3 toques →</p>
           </button>
         </div>
       </div>
