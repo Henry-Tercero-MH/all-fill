@@ -29,15 +29,15 @@ export default function HowItWorks() {
       <div className="container-x">
         <div className="grid items-center gap-12 md:grid-cols-2">
           <Reveal>
-            <div className=”relative pb-16 md:pb-0”>
-              <div className=”absolute -left-4 -top-4 h-28 w-28 rounded-3xl bg-cream” />
+            <div className="relative pb-16 md:pb-0">
+              <div className="absolute -left-4 -top-4 h-28 w-28 rounded-3xl bg-cream" />
               <img
                 src={U(PHOTOS.soporteTelefonoGatito, 800)}
-                alt=”Pieza ALL-FILL impresa en 3D”
-                className=”relative aspect-[5/4] w-full rounded-[1.6rem] border border-ink/10 object-cover shadow-soft”
+                alt="Pieza ALL-FILL impresa en 3D"
+                className="relative aspect-[5/4] w-full rounded-[1.6rem] border border-ink/10 object-cover shadow-soft"
               />
-              <div className=”absolute -bottom-14 right-0 max-w-[210px] rounded-2xl border border-ink/10 bg-white p-4 shadow-lift md:-bottom-6 md:-right-4”>
-                <p className=”font-display text-base font-600 italic text-ink”>
+              <div className="absolute -bottom-14 right-0 max-w-[210px] rounded-2xl border border-ink/10 bg-white p-4 shadow-lift md:-bottom-6 md:-right-4">
+                <p className="font-display text-base font-600 italic text-ink">
                   &ldquo;No tienes que saber nada de impresión 3D. Para eso estamos nosotros.&rdquo;
                 </p>
               </div>
