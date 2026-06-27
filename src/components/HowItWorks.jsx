@@ -38,7 +38,7 @@ export default function HowItWorks() {
               />
               <div className=”absolute -bottom-14 right-0 max-w-[210px] rounded-2xl border border-ink/10 bg-white p-4 shadow-lift md:-bottom-6 md:-right-4”>
                 <p className=”font-display text-base font-600 italic text-ink”>
-                  “No tienes que saber nada de impresión 3D. Para eso estamos nosotros.”
+                  &ldquo;No tienes que saber nada de impresión 3D. Para eso estamos nosotros.&rdquo;
                 </p>
               </div>
             </div>
