@@ -82,4 +82,9 @@ export const PHOTOS = {
   calzador: img('calzador.webp'),
   calzadorLargo: img('calzadorlargo.webp'),
   patoRelajado: img('patorelajadofigurita.webp'),
+  cortadorCinta: img('cortadordecinta.webp'),
+  cortadorCinta2: img('cortadordecinta1.webp'),
+  marcadorCocodrilo: img('marcadordecocodriloparalibro.webp'),
+  llaveroIphone17: img('llaveroihpone17.webp'),
+  altavozPasivo: img('altavozpasivoparatelefono.webp'),
 }
