@@ -44,4 +44,33 @@ export const PHOTOS = {
   ganchos: img('ganchosdepared.webp'),
   protectorCableCerdito: img('protectorcableFormadeCerdito.webp'),
   protectorCargador: img('protectorCargador.webp'),
+  // Lámparas
+  lamparaColgante: img('lamparacolgante.webp'),
+  lamparaColgante2: img('lamparacolgante2.webp'),
+  lamparaNegocios: img('lamparacolganteparanegociosrestaurantes.webp'),
+  // Jarrones y decoración
+  jarronSeda: img('jarrondesedaartistico.webp'),
+  jarronEspiral: img('jarronespiral.webp'),
+  jarronAcanalado: img('jarronacanaladoretorcido.webp'),
+  // Organización y estantes
+  portapapel: img('portapapelmayordomo.webp'),
+  colgadorBloqueo: img('colgadorconbloqueoautomatico.webp'),
+  soporteTrapos: img('soporteparatraposcocina.webp'),
+  estanteParedLlavero: img('estantedeparedyllavero.webp'),
+  estanteriaHexagonal: img('estanteriahexagonal.webp'),
+  estanteriaEsquina: img('estanteriamodulardeesquina.webp'),
+  estanteriaEscritorio: img('estanteriamodulardeescritorio.webp'),
+  organizadorBano: img('organizadordebañoacanalado.webp'),
+  estanteColgante: img('estantecolgantehexagonal.webp'),
+  patasEstante: img('patasparaestante.webp'),
+  interruptorJoystick: img('interruptordeparedconjostik.webp'),
+  organizadorOficina: img('organizadordeescritorioparaoficinaconsoporteintegradoparatelefono.webp'),
+  postikOrganizador: img('postikorganizador.webp'),
+  miniTripode: img('minitripode.webp'),
+  // Juguetes y otros
+  katanaRetractil: img('katanaretractil.webp'),
+  llaveroZapato: img('llaverozapato.webp'),
+  rompecabezasEsfera: img('rompecabezasesfera.webp'),
+  dispensadorCartas: img('dispensadordecartas.webp'),
+  jugueteAntistres: img('jugueteantestres.webp'),
 }
