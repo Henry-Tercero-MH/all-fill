@@ -73,4 +73,13 @@ export const PHOTOS = {
   rompecabezasEsfera: img('rompecabezasesfera.webp'),
   dispensadorCartas: img('dispensadordecartas.webp'),
   jugueteAntistres: img('jugueteantestres.webp'),
+  rompecabezasNombre: img('rompecabezasdenombreparaniñospersonalizado.webp'),
+  soportePaginaLibro: img('soportedepaginalibro.webp'),
+  pajaroEquilibrio: img('pajarodeequilibrio.webp'),
+  pescadorTazas: img('pescadordetazaste.webp'),
+  colgadorLlavesCarrro: img('colgadordellavescarropartetrasera.webp'),
+  destapadorBotellas: img('destapadordebotellas.webp'),
+  calzador: img('calzador.webp'),
+  calzadorLargo: img('calzadorlargo.webp'),
+  patoRelajado: img('patorelajadofigurita.webp'),
 }
