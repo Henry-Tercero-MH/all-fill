@@ -87,4 +87,6 @@ export const PHOTOS = {
   marcadorCocodrilo: img('marcadordecocodriloparalibro.webp'),
   llaveroIphone17: img('llaveroihpone17.webp'),
   altavozPasivo: img('altavozpasivoparatelefono.webp'),
+  empuñadorIphone: img('empuñadordemanoparaiphone.webp'),
+  amplificadorCiberdock: img('aplificadordeiphoneciberdock.webp'),
 }

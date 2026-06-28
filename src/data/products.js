@@ -611,4 +611,22 @@ export const products = [
     tag: 'Sin cables',
     desc: 'Amplifica el sonido de tu teléfono sin electricidad. Solo ponlo y escucha más fuerte.',
   },
+  {
+    id: 69,
+    name: 'Empuñador de mano para iPhone',
+    category: 'soportes',
+    price: 45,
+    photo: PHOTOS.empuñadorIphone,
+    tag: 'Nuevo',
+    desc: 'Agarra tu iPhone con más seguridad. Ideal para fotos, videos y uso con una sola mano.',
+  },
+  {
+    id: 70,
+    name: 'Amplificador iPhone Cyberdock',
+    category: 'soportes',
+    price: 70,
+    photo: PHOTOS.amplificadorCiberdock,
+    tag: 'Sin cables',
+    desc: 'Amplifica el sonido de tu iPhone sin electricidad ni Bluetooth. Diseño cyberpunk único.',
+  },
 ]
