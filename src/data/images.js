@@ -89,4 +89,23 @@ export const PHOTOS = {
   altavozPasivo: img('altavozpasivoparatelefono.webp'),
   empuñadorIphone: img('empuñadordemanoparaiphone.webp'),
   amplificadorCiberdock: img('aplificadordeiphoneciberdock.webp'),
+  // Llaveros (lote nuevo)
+  llaveroBlockCemento: img('llaverodeblockdecemento.webp'),
+  llaveroMotorV8: img('llaverodebloquedemotorv8.webp'),
+  llaveroPiston: img('llaveropiston.webp'),
+  // Hogar y útiles (lote nuevo)
+  cajaToallas: img('cajadealmacenamientodetoallassanitarias.webp'),
+  cajaBaterias: img('cajdebateriaAAcontapapresion.webp'),
+  colgadorBatimovil: img('colgadordellavesbatimovil.webp'),
+  estantePapel: img('estantepararollopapelhigienicopaered.webp'),
+  exprimidorPasta: img('exprimidordepasta.webp'),
+  fundaAirpods: img('fundaparairpods.webp'),
+  guiaCostura: img('guiadededosparacosturaamano.webp'),
+  limpiadorPuertos: img('herramientadelimpiezaparapuertosdecarga.webp'),
+  miniclipBolsas: img('miniclipparabolsas.webp'),
+  portaesponja: img('portaesponja.webp'),
+  recipienteJabon: img('recipienteparajabon.webp'),
+  soporteBalon: img('soportebalondepared.webp'),
+  soporteBalonRepisa: img('soportedeparedparabalon.webp'),
+  tarjeteroBatman: img('tarjeterobatman.webp'),
 }
