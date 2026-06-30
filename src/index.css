@@ -18,6 +18,9 @@
     font-feature-settings: 'kern' 1, 'liga' 1, 'calt' 1;
     letter-spacing: -0.005em;
     line-height: 1.6;
+    /* Evita el zoom por doble toque y el gesto de pellizco en móvil */
+    touch-action: pan-x pan-y;
+    -webkit-text-size-adjust: 100%;
   }
 
   /* La display (Fraunces) con optical sizing alto y ligaduras para títulos grandes. */
