@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
-import { FiEdit2, FiTrash2, FiPlus, FiLogOut, FiUploadCloud, FiExternalLink, FiX, FiHeart } from 'react-icons/fi'
+import { FiEdit2, FiTrash2, FiPlus, FiLogOut, FiUploadCloud, FiExternalLink, FiX, FiHeart, FiPackage, FiDollarSign } from 'react-icons/fi'
+import PriceCalculator from '../components/PriceCalculator'
 import { categories } from '../data/products'
 import { U } from '../data/images'
 import {
@@ -199,6 +200,7 @@ function Dashboard({ onLogout }) {
   const [error, setError] = useState('')
   const [form, setForm] = useState(null) // producto en edición, {} para nuevo, null cerrado
   const [sortLikes, setSortLikes] = useState(false)
+  const [tab, setTab] = useState('productos') // 'productos' | 'cotizador'
 
   const totalLikes = list.reduce((s, p) => s + (p.likes || 0), 0)
   const sorted = sortLikes ? [...list].sort((a, b) => (b.likes || 0) - (a.likes || 0)) : list
@@ -238,6 +240,28 @@ function Dashboard({ onLogout }) {
       </header>
 
       <main className="container-x py-8">
+        {/* Pestañas */}
+        <div className="mb-6 flex gap-2">
+          {[
+            { id: 'productos', label: 'Productos', icon: FiPackage },
+            { id: 'cotizador', label: 'Cotizador', icon: FiDollarSign },
+          ].map((t) => (
+            <button
+              key={t.id}
+              onClick={() => setTab(t.id)}
+              className={`inline-flex items-center gap-2 rounded-full px-4 py-2 text-sm font-700 transition-colors ${
+                tab === t.id ? 'bg-ink text-white' : 'border border-ink/15 text-ink/70 hover:text-ink'
+              }`}
+            >
+              <t.icon /> {t.label}
+            </button>
+          ))}
+        </div>
+
+        {tab === 'cotizador' ? (
+          <PriceCalculator />
+        ) : (
+        <>
         <div className="mb-6 flex items-center justify-between">
           <div>
             <h1 className="font-display text-2xl font-700 text-ink">Productos</h1>
@@ -280,6 +304,8 @@ function Dashboard({ onLogout }) {
             ))}
             {list.length === 0 && <p className="py-16 text-center text-ink/50">Aún no hay productos. Crea el primero.</p>}
           </div>
+        )}
+        </>
         )}
       </main>
 
