@@ -4,6 +4,7 @@ import { StoreProvider } from './context/StoreContext'
 import Navbar from './components/Navbar'
 import HeroBento from './components/HeroBento'
 import CategoryCircles from './components/CategoryCircles'
+import MostLiked from './components/MostLiked'
 import FeaturedCarousel from './components/FeaturedCarousel'
 import Catalog from './components/Catalog'
 import HowItWorks from './components/HowItWorks'
@@ -27,6 +28,7 @@ function Site() {
       <main>
         <HeroBento />
         <CategoryCircles />
+        <MostLiked />
         <FeaturedCarousel />
         <Catalog />
         <HowItWorks />

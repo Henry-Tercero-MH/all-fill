@@ -103,9 +103,16 @@ const ProductCard = forwardRef(function ProductCard({ p, i = 0 }, ref) {
           <h3 className="font-display text-lg font-600 text-ink">{p.name}</h3>
           <p className="mt-1 flex-1 text-sm leading-relaxed text-ink/60">{p.desc}</p>
           <div className="mt-4 flex items-center justify-between gap-2">
-            <p className="text-sm text-ink/50">
-              desde <span className="font-800 text-lg text-ink">Q{p.price}</span>
-            </p>
+            <div>
+              <p className="text-sm text-ink/50">
+                desde <span className="font-800 text-lg text-ink">Q{p.price}</span>
+              </p>
+              {p.likes > 0 && (
+                <p className="mt-0.5 flex items-center gap-1 text-xs font-700 text-coral">
+                  <FiHeart className="fill-current" /> {p.likes}
+                </p>
+              )}
+            </div>
             <div className="flex items-center gap-1.5">
               <button
                 onClick={() => addToCart(p)}
