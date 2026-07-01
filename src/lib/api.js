@@ -47,12 +47,8 @@ export async function sha256Hex(text) {
 // ── Público ──────────────────────────────────────────────
 export async function fetchProductos() {
   // Sin backend configurado: usamos el catálogo estático (modo desarrollo).
-  if (!BASE) {
-    console.log('[ALL-FILL] Sin VITE_APPS_SCRIPT_URL → usando catálogo estático')
-    return STATIC_PRODUCTS
-  }
+  if (!BASE) return STATIC_PRODUCTS
   const data = await get('getProductos')
-  console.log('[ALL-FILL] getProductos →', Array.isArray(data) ? `${data.length} productos` : typeof data, data)
   if (data?.error) throw new Error(data.error)
   return (Array.isArray(data) ? data : []).map(mapProduct)
 }

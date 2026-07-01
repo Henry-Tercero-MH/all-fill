@@ -162,7 +162,7 @@ export default function Catalog() {
       )
     }
     return list
-  }, [active, search])
+  }, [products, active, search])
 
   return (
     <section id="catalogo" className="py-24">
