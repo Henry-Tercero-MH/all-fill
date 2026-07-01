@@ -2,10 +2,17 @@
 // U() devuelve la ruta local tal cual; si fuese un ID de Unsplash, arma la URL.
 const img = (file) => `/img/${file}`
 
-export const U = (id, w = 800) =>
-  id.startsWith('/')
-    ? id
-    : `https://images.unsplash.com/photo-${id}?auto=format&fit=crop&w=${w}&q=70`
+export const U = (id, w = 800) => {
+  if (!id) return ''
+  // Links de Google Drive (cualquier formato) → lh3 (más confiable para <img>).
+  if (id.includes('drive.google.com') || id.includes('googleusercontent.com')) {
+    const m = id.match(/[-\w]{25,}/)
+    return m ? `https://lh3.googleusercontent.com/d/${m[0]}` : id
+  }
+  // Rutas locales (/img/...) u otras URLs completas se usan tal cual.
+  if (id.startsWith('/') || id.startsWith('http')) return id
+  return `https://images.unsplash.com/photo-${id}?auto=format&fit=crop&w=${w}&q=70`
+}
 
 export const PHOTOS = {
   // Llaveros

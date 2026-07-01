@@ -1,8 +1,9 @@
 import { useEffect, useState } from 'react'
 import { AnimatePresence, motion, useScroll, useSpring } from 'framer-motion'
-import { FiSearch, FiHeart, FiUser, FiGrid } from 'react-icons/fi'
+import { FiSearch, FiHeart, FiUser, FiGrid, FiShoppingBag } from 'react-icons/fi'
 import { FaWhatsapp } from 'react-icons/fa'
 import { HiMenuAlt3, HiX } from 'react-icons/hi'
+import { useStore } from '../context/StoreContext'
 
 const WA = 'https://wa.me/50240705002'
 
@@ -29,6 +30,7 @@ const go = (id, after) => {
 export default function Navbar() {
   const [open, setOpen] = useState(false)
   const [q, setQ] = useState('')
+  const { favs, cartCount, setFavsOpen, setCartOpen } = useStore()
   const { scrollYProgress } = useScroll()
   const progress = useSpring(scrollYProgress, { stiffness: 120, damping: 30, mass: 0.2 })
 
@@ -79,9 +81,18 @@ export default function Navbar() {
 
           {/* Iconos */}
           <div className="ml-auto flex shrink-0 items-center gap-1 sm:ml-0">
-            <a href={WA} target="_blank" rel="noreferrer" aria-label="Favoritos" className="hidden h-10 w-10 items-center justify-center rounded-full transition-colors hover:bg-white/15 md:flex">
+            <button onClick={() => setFavsOpen(true)} aria-label="Favoritos" className="relative flex h-10 w-10 items-center justify-center rounded-full transition-colors hover:bg-white/15">
               <FiHeart className="text-xl" />
-            </a>
+              {favs.length > 0 && (
+                <span className="absolute -right-0.5 -top-0.5 flex h-4 min-w-4 items-center justify-center rounded-full bg-white px-1 text-[10px] font-800 text-coral">{favs.length}</span>
+              )}
+            </button>
+            <button onClick={() => setCartOpen(true)} aria-label="Carrito" className="relative flex h-10 w-10 items-center justify-center rounded-full transition-colors hover:bg-white/15">
+              <FiShoppingBag className="text-xl" />
+              {cartCount > 0 && (
+                <span className="absolute -right-0.5 -top-0.5 flex h-4 min-w-4 items-center justify-center rounded-full bg-ink px-1 text-[10px] font-800 text-white">{cartCount}</span>
+              )}
+            </button>
             <a href={WA} target="_blank" rel="noreferrer" className="hidden items-center gap-2 rounded-full px-3 py-2 text-sm font-700 transition-colors hover:bg-white/15 md:flex">
               <FiUser className="text-xl" /> Mi cuenta
             </a>

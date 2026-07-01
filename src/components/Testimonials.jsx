@@ -10,7 +10,7 @@ const testimonials = [
     name: 'María José',
     place: 'Ciudad de Guatemala',
     initials: 'MJ',
-    color: '#F95C4B',
+    color: '#076DDF',
     text: 'Le pedí la figura del personaje favorito de mi hijo y quedó fascinado. Se ve igualita a la de la película.',
   },
   {
@@ -24,7 +24,7 @@ const testimonials = [
     name: 'Luisa Fernanda',
     place: 'Antigua',
     initials: 'LF',
-    color: '#F95C4B',
+    color: '#076DDF',
     text: 'Tenía una idea en la cabeza y la hicieron real. Fácil de pedir por WhatsApp y rapidísimo.',
   },
   {
@@ -38,7 +38,7 @@ const testimonials = [
     name: 'Andrea Pérez',
     place: 'Villa Nueva',
     initials: 'AP',
-    color: '#F95C4B',
+    color: '#076DDF',
     text: 'Pedí recuerditos personalizados para mi boda y fueron el detalle que más gustó. Calidad increíble.',
   },
 ]
@@ -131,7 +131,7 @@ export default function Testimonials() {
               className="h-2 rounded-full transition-all duration-300"
               style={{
                 width: i === selected ? 26 : 8,
-                background: i === selected ? '#F95C4B' : 'rgba(23,24,24,0.18)',
+                background: i === selected ? '#076DDF' : 'rgba(23,24,24,0.18)',
               }}
             />
           ))}

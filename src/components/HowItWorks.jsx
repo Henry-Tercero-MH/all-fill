@@ -5,7 +5,7 @@ import Reveal from './Reveal'
 const steps = [
   {
     icon: FiMessageCircle,
-    color: '#F95C4B',
+    color: '#076DDF',
     title: 'Nos cuentas tu idea',
     text: 'Por WhatsApp o el formulario. Una foto, un dibujo o solo la descripción: con eso arrancamos.',
   },
@@ -17,7 +17,7 @@ const steps = [
   },
   {
     icon: FiGift,
-    color: '#F95C4B',
+    color: '#076DDF',
     title: 'La creamos y te la damos',
     text: 'La hacemos pieza por pieza y te avisamos cuando está lista para recoger o enviar.',
   },

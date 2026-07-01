@@ -1,10 +1,11 @@
-import { FaInstagram, FaWhatsapp, FaFacebookF, FaTiktok } from 'react-icons/fa'
+import { Link } from 'react-router-dom'
+import { FaInstagram, FaWhatsapp, FaTiktok, FaYoutube } from 'react-icons/fa'
 
 const socials = [
-  { name: 'Instagram', href: 'https://instagram.com', icon: FaInstagram },
+  { name: 'Instagram', href: 'https://www.instagram.com/allfill2026', icon: FaInstagram },
+  { name: 'TikTok', href: 'https://vt.tiktok.com/ZSCaV33oy/', icon: FaTiktok },
+  { name: 'YouTube', href: 'https://youtube.com/@allfill-y2j', icon: FaYoutube },
   { name: 'WhatsApp', href: 'https://wa.me/50240705002', icon: FaWhatsapp },
-  { name: 'Facebook', href: 'https://facebook.com', icon: FaFacebookF },
-  { name: 'TikTok', href: 'https://tiktok.com', icon: FaTiktok },
 ]
 
 export default function Footer() {
@@ -72,7 +73,10 @@ export default function Footer() {
 
         <div className="mt-14 flex flex-col items-center justify-between gap-3 border-t border-white/10 pt-7 text-sm text-white/50 sm:flex-row">
           <p>© {new Date().getFullYear()} ALL-FILL. Todos los derechos reservados.</p>
-          <p>Impresión 3D · Guatemala</p>
+          <div className="flex items-center gap-4">
+            <p>Impresión 3D · Guatemala</p>
+            <Link to="/admin" className="text-white/40 transition-colors hover:text-coral">Admin</Link>
+          </div>
         </div>
       </div>
     </footer>

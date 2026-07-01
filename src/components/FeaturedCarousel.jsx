@@ -1,13 +1,23 @@
+import { useMemo } from 'react'
 import useEmblaCarousel from 'embla-carousel-react'
 import { FiArrowLeft, FiArrowRight, FiArrowUpRight } from 'react-icons/fi'
-import { products, catColor } from '../data/products'
+import { catColor } from '../data/products'
 import { U } from '../data/images'
+import { useProducts } from '../context/ProductsContext'
+import { waProduct } from '../lib/whatsapp'
 import Reveal from './Reveal'
-
-const go = (id) => document.getElementById(id)?.scrollIntoView({ behavior: 'smooth', block: 'start' })
 
 export default function FeaturedCarousel() {
   const [emblaRef, emblaApi] = useEmblaCarousel({ align: 'start', loop: false, dragFree: true })
+  const { products, loading } = useProducts()
+
+  // Destacados; si no hay marcados, mostramos los primeros como muestra.
+  const featured = useMemo(() => {
+    const dest = products.filter((p) => p.destacado)
+    return (dest.length ? dest : products).slice(0, 12)
+  }, [products])
+
+  if (loading || featured.length === 0) return null
 
   return (
     <section className="py-12">
@@ -31,8 +41,8 @@ export default function FeaturedCarousel() {
 
         <div className="mt-8 overflow-hidden" ref={emblaRef}>
           <div className="flex">
-            {products.map((p) => {
-              const color = catColor[p.category]
+            {featured.map((p) => {
+              const color = catColor[p.category] || '#076DDF'
               return (
                 <div key={p.id} className="min-w-0 flex-[0_0_100%] pr-5 sm:flex-[0_0_50%] lg:flex-[0_0_25%]">
                   <article className="card group flex h-full flex-col">
@@ -51,7 +61,7 @@ export default function FeaturedCarousel() {
                           desde <span className="font-800 text-base text-ink">Q{p.price}</span>
                         </p>
                         <button
-                          onClick={() => go('contacto')}
+                          onClick={() => window.open(waProduct(p), '_blank')}
                           aria-label={`Pedir ${p.name}`}
                           className="flex h-9 w-9 items-center justify-center rounded-full text-white transition-transform hover:scale-110"
                           style={{ background: color }}

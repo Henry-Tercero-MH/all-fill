@@ -51,7 +51,7 @@ export default function Contact() {
 
   const field =
     'w-full rounded-xl border bg-paper px-4 py-3 text-ink outline-none transition-all placeholder:text-ink/35 ' +
-    'border-ink/12 focus:border-coral focus:shadow-[0_0_0_4px_rgba(249,92,75,0.12)]'
+    'border-ink/12 focus:border-coral focus:shadow-[0_0_0_4px_rgba(7, 109, 223,0.12)]'
 
   const handleChange = (e) => {
     const { name, value, files } = e.target
@@ -96,7 +96,7 @@ export default function Contact() {
 
           <div className="mt-8 space-y-2 text-ink/70">
             <p>📍 Ciudad de Guatemala</p>
-            <p>✉️ hola@all-fill.gt</p>
+            <p>✉️ <a href="mailto:allfill2026@gmail.com" className="hover:text-coral">allfill2026@gmail.com</a></p>
           </div>
         </Reveal>
 

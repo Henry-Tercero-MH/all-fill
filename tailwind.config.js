@@ -7,8 +7,8 @@ export default {
         // Paleta tomada de las tarjetas de color
         ink: '#171818', // Army Black
         coral: {
-          DEFAULT: '#F95C4B', // Algerian Coral
-          600: '#E8483A',
+          DEFAULT: '#076DDF', // Algerian Coral
+          600: '#0A57B8',
         },
         forest: '#023A22', // Off-Road Green
         navy: '#003162', // Prestige Mauve (navy)
@@ -58,9 +58,13 @@ export default {
         fadeUp: 'fadeUp 0.6s ease-out both',
       },
       boxShadow: {
-        soft: '0 18px 40px -24px rgba(23, 24, 24, 0.35)',
-        lift: '0 28px 60px -28px rgba(23, 24, 24, 0.45)',
+        // Sombras en capas (ambiente + directa) para dar volumen real.
+        soft: '0 1px 2px rgba(23,24,24,0.04), 0 8px 22px -10px rgba(23,24,24,0.22)',
+        lift: '0 6px 14px -6px rgba(23,24,24,0.16), 0 26px 52px -22px rgba(23,24,24,0.42)',
         glow: '0 0 28px -2px rgba(7, 109, 223, 0.45)',
+        press: 'inset 0 3px 8px rgba(0,0,0,0.22)',
+        inset3d: 'inset 0 2px 4px rgba(23,24,24,0.10), inset 0 -1px 0 rgba(255,255,255,0.6)',
+        raised: '0 1px 0 rgba(255,255,255,0.7) inset, 0 1px 2px rgba(23,24,24,0.05), 0 12px 26px -12px rgba(23,24,24,0.3)',
       },
     },
   },

@@ -59,7 +59,7 @@ function Ribbon() {
   const uniforms = useMemo(
     () => ({
       uTime: { value: 0 },
-      uColor: { value: new THREE.Color('#F95C4B') },
+      uColor: { value: new THREE.Color('#076DDF') },
     }),
     [],
   )

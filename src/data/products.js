@@ -13,13 +13,13 @@ export const categories = [
 ]
 
 export const catColor = {
-  llaveros: '#F95C4B', // coral
+  llaveros: '#076DDF', // coral
   soportes: '#171818', // ink
-  antiestres: '#F95C4B', // coral
+  antiestres: '#076DDF', // coral
   silbatos: '#171818', // ink
-  figuritas: '#F95C4B', // coral
+  figuritas: '#076DDF', // coral
   instrumentos: '#171818', // ink
-  hogar: '#F95C4B', // coral
+  hogar: '#076DDF', // coral
 }
 
 export const products = [

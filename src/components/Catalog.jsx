@@ -7,9 +7,13 @@ import {
   useSpring,
   useTransform,
 } from 'framer-motion'
-import { FiArrowUpRight } from 'react-icons/fi'
-import { categories, catColor, products } from '../data/products'
+import { FiArrowUpRight, FiHeart, FiShoppingBag } from 'react-icons/fi'
+import { categories, catColor } from '../data/products'
 import { U } from '../data/images'
+import { useProducts } from '../context/ProductsContext'
+import { useStore } from '../context/StoreContext'
+import { waProduct } from '../lib/whatsapp'
+import ConnectionError from './ConnectionError'
 import Reveal from './Reveal'
 
 const hexToRgb = (hex) => {
@@ -18,11 +22,12 @@ const hexToRgb = (hex) => {
 }
 
 const ProductCard = forwardRef(function ProductCard({ p, i = 0 }, ref) {
-  const color = catColor[p.category]
+  const color = catColor[p.category] || '#076DDF'
   const rgb = hexToRgb(color)
   const innerRef = useRef(null)
-  const goContact = () =>
-    document.getElementById('contacto')?.scrollIntoView({ behavior: 'smooth' })
+  const { addToCart, toggleFav, isFav, setDetail } = useStore()
+  const fav = isFav(p.id)
+  const pedir = () => window.open(waProduct(p), '_blank')
 
   // Posición del cursor (0..1) para el tilt 3D y el reflejo.
   const mx = useMotionValue(0.5)
@@ -67,12 +72,14 @@ const ProductCard = forwardRef(function ProductCard({ p, i = 0 }, ref) {
         />
 
         <div className="relative overflow-hidden">
-          <img
-            src={U(p.photo, 600)}
-            alt={p.name}
-            loading="lazy"
-            className="aspect-square w-full object-cover transition-transform duration-[600ms] ease-out group-hover:scale-[1.07]"
-          />
+          <button onClick={() => setDetail(p)} aria-label={`Ver ${p.name}`} className="block w-full">
+            <img
+              src={U(p.photo, 600)}
+              alt={p.name}
+              loading="lazy"
+              className="aspect-square w-full object-cover transition-transform duration-[600ms] ease-out group-hover:scale-[1.07]"
+            />
+          </button>
           {/* velo inferior para legibilidad del precio en hover */}
           <div className="pointer-events-none absolute inset-x-0 bottom-0 h-1/3 bg-gradient-to-t from-ink/30 to-transparent opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
           {p.tag && (
@@ -83,24 +90,40 @@ const ProductCard = forwardRef(function ProductCard({ p, i = 0 }, ref) {
               {p.tag}
             </span>
           )}
+          <button
+            onClick={() => toggleFav(p)}
+            aria-label="Favorito"
+            className={`absolute right-3 top-3 z-20 flex h-9 w-9 items-center justify-center rounded-full bg-white/85 backdrop-blur transition-colors ${fav ? 'text-coral' : 'text-ink/50 hover:text-coral'}`}
+          >
+            <FiHeart className={fav ? 'fill-current' : ''} />
+          </button>
         </div>
 
         <div className="flex flex-1 flex-col p-5" style={{ transform: 'translateZ(28px)' }}>
           <h3 className="font-display text-lg font-600 text-ink">{p.name}</h3>
           <p className="mt-1 flex-1 text-sm leading-relaxed text-ink/60">{p.desc}</p>
-          <div className="mt-4 flex items-center justify-between">
+          <div className="mt-4 flex items-center justify-between gap-2">
             <p className="text-sm text-ink/50">
               desde <span className="font-800 text-lg text-ink">Q{p.price}</span>
             </p>
-            <button
-              onClick={goContact}
-              className="group/btn inline-flex items-center gap-1 rounded-full border border-ink/15 px-3.5 py-2 text-sm font-700 text-ink transition-colors hover:border-transparent hover:text-white"
-              onMouseEnter={(e) => (e.currentTarget.style.background = color)}
-              onMouseLeave={(e) => (e.currentTarget.style.background = '')}
-            >
-              Lo quiero
-              <FiArrowUpRight className="transition-transform duration-200 group-hover/btn:translate-x-0.5 group-hover/btn:-translate-y-0.5" />
-            </button>
+            <div className="flex items-center gap-1.5">
+              <button
+                onClick={() => addToCart(p)}
+                aria-label={`Agregar ${p.name} al carrito`}
+                className="flex h-9 w-9 items-center justify-center rounded-full border border-ink/15 text-ink transition-colors hover:border-coral hover:text-coral"
+              >
+                <FiShoppingBag />
+              </button>
+              <button
+                onClick={pedir}
+                className="group/btn inline-flex items-center gap-1 rounded-full border border-ink/15 px-3.5 py-2 text-sm font-700 text-ink transition-colors hover:border-transparent hover:text-white"
+                onMouseEnter={(e) => (e.currentTarget.style.background = color)}
+                onMouseLeave={(e) => (e.currentTarget.style.background = '')}
+              >
+                Lo quiero
+                <FiArrowUpRight className="transition-transform duration-200 group-hover/btn:translate-x-0.5 group-hover/btn:-translate-y-0.5" />
+              </button>
+            </div>
           </div>
         </div>
       </motion.div>
@@ -109,6 +132,7 @@ const ProductCard = forwardRef(function ProductCard({ p, i = 0 }, ref) {
 })
 
 export default function Catalog() {
+  const { products, loading, error, reload } = useProducts()
   const [active, setActive] = useState('todos')
   const [search, setSearch] = useState('')
 
@@ -198,7 +222,23 @@ export default function Catalog() {
           </p>
         )}
 
-        {filtered.length === 0 ? (
+        {loading ? (
+          <div className="mt-9 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4">
+            {Array.from({ length: 8 }).map((_, i) => (
+              <div key={i} className="animate-pulse">
+                <div className="aspect-square w-full rounded-[1.4rem] bg-ink/[0.06]" />
+                <div className="mt-3 h-4 w-2/3 rounded bg-ink/[0.06]" />
+                <div className="mt-2 h-4 w-1/3 rounded bg-ink/[0.06]" />
+              </div>
+            ))}
+          </div>
+        ) : error ? (
+          <ConnectionError
+            onRetry={reload}
+            title="No pudimos cargar el catálogo"
+            message="Revisa tu internet e inténtalo de nuevo."
+          />
+        ) : filtered.length === 0 ? (
           <div className="mt-10 rounded-[1.4rem] border border-dashed border-ink/15 bg-white px-6 py-14 text-center">
             <p className="font-display text-xl font-600 text-ink">No encontramos eso… todavía 🙂</p>
             <p className="mt-2 text-ink/60">Pero lo hacemos a tu medida. Cuéntanos tu idea y la creamos.</p>

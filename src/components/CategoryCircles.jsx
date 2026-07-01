@@ -38,7 +38,7 @@ export default function CategoryCircles() {
               transition={{ duration: 0.4, delay: i * 0.04 }}
               className="group flex shrink-0 flex-col items-center gap-2.5"
             >
-              <span className="flex h-[68px] w-[68px] items-center justify-center rounded-full bg-coral/10 text-2xl text-coral transition-all duration-300 group-hover:-translate-y-1 group-hover:bg-coral group-hover:text-white group-hover:shadow-lift">
+              <span className="flex h-[68px] w-[68px] items-center justify-center rounded-full bg-coral/10 text-2xl text-coral shadow-raised transition-all duration-300 group-hover:-translate-y-1.5 group-hover:bg-coral group-hover:text-white group-hover:shadow-lift">
                 <it.icon />
               </span>
               <span className="whitespace-nowrap text-center text-sm font-700 text-ink/75 transition-colors group-hover:text-ink">

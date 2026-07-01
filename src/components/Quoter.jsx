@@ -28,7 +28,7 @@ function StepDots({ step }) {
             className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full text-sm font-800 transition-all"
             style={
               i <= step
-                ? { background: '#F95C4B', color: '#fff' }
+                ? { background: '#076DDF', color: '#fff' }
                 : { background: 'rgba(23,24,24,0.07)', color: 'rgba(23,24,24,0.45)' }
             }
           >
@@ -37,7 +37,7 @@ function StepDots({ step }) {
           {i < 2 && (
             <div
               className="h-0.5 flex-1 rounded-full"
-              style={{ background: i < step ? '#F95C4B' : 'rgba(23,24,24,0.1)' }}
+              style={{ background: i < step ? '#076DDF' : 'rgba(23,24,24,0.1)' }}
             />
           )}
         </div>
@@ -59,14 +59,14 @@ function OptionGrid({ options, value, onPick }) {
             className="flex items-center gap-3 rounded-2xl border p-4 text-left transition-all"
             style={
               on
-                ? { borderColor: '#F95C4B', background: 'rgba(249,92,75,0.06)' }
+                ? { borderColor: '#076DDF', background: 'rgba(7, 109, 223,0.06)' }
                 : { borderColor: 'rgba(23,24,24,0.1)' }
             }
           >
             {Icon && (
               <span
                 className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl text-xl"
-                style={{ color: on ? '#F95C4B' : '#171818', background: on ? 'rgba(249,92,75,0.1)' : 'rgba(23,24,24,0.05)' }}
+                style={{ color: on ? '#076DDF' : '#171818', background: on ? 'rgba(7, 109, 223,0.1)' : 'rgba(23,24,24,0.05)' }}
               >
                 <Icon />
               </span>
