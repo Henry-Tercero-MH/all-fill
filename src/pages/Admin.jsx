@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
-import { FiEdit2, FiTrash2, FiPlus, FiLogOut, FiUploadCloud, FiExternalLink, FiX } from 'react-icons/fi'
+import { FiEdit2, FiTrash2, FiPlus, FiLogOut, FiUploadCloud, FiExternalLink, FiX, FiHeart } from 'react-icons/fi'
 import { categories } from '../data/products'
 import { U } from '../data/images'
 import {
@@ -198,6 +198,10 @@ function Dashboard({ onLogout }) {
   const [loading, setLoading] = useState(true)
   const [error, setError] = useState('')
   const [form, setForm] = useState(null) // producto en edición, {} para nuevo, null cerrado
+  const [sortLikes, setSortLikes] = useState(false)
+
+  const totalLikes = list.reduce((s, p) => s + (p.likes || 0), 0)
+  const sorted = sortLikes ? [...list].sort((a, b) => (b.likes || 0) - (a.likes || 0)) : list
 
   const load = () => {
     setLoading(true)
@@ -237,11 +241,21 @@ function Dashboard({ onLogout }) {
         <div className="mb-6 flex items-center justify-between">
           <div>
             <h1 className="font-display text-2xl font-700 text-ink">Productos</h1>
-            <p className="text-sm text-ink/50">{list.length} en el catálogo</p>
+            <p className="text-sm text-ink/50">
+              {list.length} en el catálogo · <FiHeart className="inline -mt-0.5 fill-coral text-coral" /> {totalLikes} me gusta en total
+            </p>
           </div>
-          <button onClick={() => setForm({})} className="btn-coral px-5 py-2.5 text-sm">
-            <FiPlus /> Nuevo producto
-          </button>
+          <div className="flex items-center gap-2">
+            <button
+              onClick={() => setSortLikes((v) => !v)}
+              className={`inline-flex items-center gap-1.5 rounded-full border px-3.5 py-2 text-sm font-700 transition-colors ${sortLikes ? 'border-coral text-coral' : 'border-ink/15 text-ink/70 hover:border-coral hover:text-coral'}`}
+            >
+              <FiHeart className={sortLikes ? 'fill-current' : ''} /> Más gustados
+            </button>
+            <button onClick={() => setForm({})} className="btn-coral px-5 py-2.5 text-sm">
+              <FiPlus /> Nuevo producto
+            </button>
+          </div>
         </div>
 
         {loading ? (
@@ -250,13 +264,16 @@ function Dashboard({ onLogout }) {
           <p className="py-16 text-center text-coral">{error}</p>
         ) : (
           <div className="overflow-hidden rounded-[1.2rem] border border-ink/10 bg-white">
-            {list.map((p) => (
+            {sorted.map((p) => (
               <div key={p.id} className="flex items-center gap-4 border-b border-ink/[0.06] p-3 last:border-0">
                 <img src={U(p.photo, 120)} alt="" className="h-14 w-14 shrink-0 rounded-lg bg-ink/5 object-cover" />
                 <div className="min-w-0 flex-1">
                   <p className="truncate font-700 text-ink">{p.name}</p>
                   <p className="text-sm text-ink/50">{p.category} · Q{p.price}{p.tag ? ` · ${p.tag}` : ''}{!p.disponible ? ' · oculto' : ''}</p>
                 </div>
+                <span className="flex shrink-0 items-center gap-1 rounded-full bg-coral/10 px-2.5 py-1 text-sm font-700 text-coral" title="Me gusta">
+                  <FiHeart className={p.likes > 0 ? 'fill-current' : ''} /> {p.likes || 0}
+                </span>
                 <button onClick={() => setForm(p.raw ? { id: p.id, nombre: p.name, descripcion: p.desc, precio: p.price, categoria: p.category, tag: p.tag || '', imagenUrl: p.photo, disponible: p.disponible, destacado: p.destacado } : p)} className="flex h-9 w-9 items-center justify-center rounded-full text-ink/60 hover:bg-ink/5 hover:text-electric"><FiEdit2 /></button>
                 <button onClick={() => remove(p)} className="flex h-9 w-9 items-center justify-center rounded-full text-ink/60 hover:bg-ink/5 hover:text-coral"><FiTrash2 /></button>
               </div>
