@@ -26,5 +26,15 @@ export function ProductsProvider({ children }) {
     load()
   }, [load])
 
-  return <Ctx.Provider value={{ products, loading, error, reload: load }}>{children}</Ctx.Provider>
+  // Actualiza los likes localmente (optimista) al dar/quitar me gusta,
+  // para que el ranking y la sección "Los favoritos de todos" reaccionen al instante.
+  const bumpLike = useCallback((id, delta) => {
+    setProducts((list) =>
+      list.map((p) => (p.id === id ? { ...p, likes: Math.max(0, (p.likes || 0) + delta) } : p)),
+    )
+  }, [])
+
+  return (
+    <Ctx.Provider value={{ products, loading, error, reload: load, bumpLike }}>{children}</Ctx.Provider>
+  )
 }

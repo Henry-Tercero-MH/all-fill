@@ -1,5 +1,6 @@
 import { createContext, useContext, useEffect, useMemo, useState } from 'react'
 import { darLike } from '../lib/api'
+import { useProducts } from './ProductsContext'
 
 const KEY_CART = 'allfill_cart'
 const KEY_FAV = 'allfill_favs'
@@ -25,6 +26,7 @@ const Ctx = createContext(null)
 export const useStore = () => useContext(Ctx)
 
 export function StoreProvider({ children }) {
+  const { bumpLike } = useProducts()
   const [cart, setCart] = useState(() => load(KEY_CART))
   const [favs, setFavs] = useState(() => load(KEY_FAV))
   const [cartOpen, setCartOpen] = useState(false)
@@ -70,9 +72,10 @@ export function StoreProvider({ children }) {
   const isFav = (id) => favs.some((x) => x.id === id)
   const toggleFav = (p) => {
     const already = favs.some((x) => x.id === p.id)
+    const delta = already ? -1 : 1
     setFavs((f) => (already ? f.filter((x) => x.id !== p.id) : [...f, snapshot(p)]))
-    // Suma/resta el "me gusta" global (para ordenar el hero por popularidad).
-    darLike(p.id, already ? -1 : 1).catch(() => {})
+    bumpLike(p.id, delta) // refleja el like al instante en el ranking/secciones
+    darLike(p.id, delta).catch(() => {}) // lo persiste global en el Sheet
   }
 
   const cartCount = useMemo(() => cart.reduce((s, x) => s + x.qty, 0), [cart])
